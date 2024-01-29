@@ -10,4 +10,8 @@
       <ProjectReference Include="..\MiniUrl.Domain\MiniUrl.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Exceptions\" />
+    </ItemGroup>
+
 </Project>

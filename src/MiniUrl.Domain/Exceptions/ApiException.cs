@@ -1,4 +1,4 @@
-﻿namespace MiniUrl.Infrastructure.Exceptions;
+﻿namespace MiniUrl.Domain.Exceptions;
 
 public abstract class ApiException : Exception
 {

@@ -1,4 +1,4 @@
-﻿namespace MiniUrl.Application.Url;
+﻿namespace MiniUrl.Domain.Url;
 
 public sealed class ShortenedUrl
 {

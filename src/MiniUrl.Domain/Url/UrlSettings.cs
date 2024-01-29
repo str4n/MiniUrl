@@ -1,4 +1,4 @@
-﻿namespace MiniUrl.Application.Url;
+﻿namespace MiniUrl.Domain.Url;
 
 public static class UrlSettings
 {
