@@ -2,7 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using MiniUrl.Infrastructure.EF;
 using MiniUrl.Infrastructure.Exceptions;
+using MiniUrl.Infrastructure.Services;
 
 namespace MiniUrl.Infrastructure;
 
@@ -14,12 +16,16 @@ public static class Extensions
         
         services.AddScoped<ExceptionHandlerMiddleware>();
 
+        services.AddPostgres(configuration);
+
+        services.AddHostedService<DatabaseInitializer>();
+
         services.AddSwaggerGen(swagger =>
         {
             swagger.CustomSchemaIds(x => x.FullName);
             swagger.SwaggerDoc("v1", new OpenApiInfo()
             {
-                Title = "NetStore API",
+                Title = "MiniUrl API",
                 Version = "v1"
             });
         });
@@ -43,5 +49,13 @@ public static class Extensions
         app.UseRouting();
 
         return app;
+    }
+    
+    internal static T GetOptions<T>(this IConfiguration configuration, string sectionName) where T : class, new()
+    {
+        T options = new T();
+        configuration.GetSection(sectionName).Bind(options);
+
+        return options;
     }
 }

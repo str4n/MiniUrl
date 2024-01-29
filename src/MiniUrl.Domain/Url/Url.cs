@@ -13,9 +13,9 @@ public sealed record Url
             throw new InvalidUrlException("Url cannot be empty.");
         }
 
-        if (!value.StartsWith(UrlSettings.WebSiteUrl))
+        if (!value.StartsWith(ShortUrlSettings.WebSiteUrl))
         {
-            throw new InvalidUrlException($"Url must start with: {UrlSettings.WebSiteUrl}");
+            throw new InvalidUrlException($"Url must start with: {ShortUrlSettings.WebSiteUrl}");
         }
 
         Value = value;

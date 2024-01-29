@@ -13,9 +13,9 @@ public sealed record Code
             throw new InvalidCodeException("Url code cannot be empty.");
         }
 
-        if (value.Length != UrlSettings.Length)
+        if (value.Length != ShortUrlSettings.Length)
         {
-            throw new InvalidCodeException($"Url code length must equal: {UrlSettings.Length}");
+            throw new InvalidCodeException($"Url code length must equal: {ShortUrlSettings.Length}");
         }
 
         Value = value;
