@@ -1,0 +1,19 @@
+﻿namespace MiniUrl.Application.Url;
+
+public sealed class ShortenedUrl
+{
+    public Guid Id { get; }
+    public Url LongUrl { get; set; }
+    public Url ShortUrl { get; set; }
+    public Code Code { get; set; }
+    public DateTime CreatedAt { get; }
+
+    public ShortenedUrl(Url longUrl, Url shortUrl, Code code, DateTime createdAt, Guid id = default)
+    {
+        Id = id != Guid.Empty ? id : Guid.NewGuid();
+        LongUrl = longUrl;
+        ShortUrl = shortUrl;
+        Code = code;
+        CreatedAt = createdAt;
+    }
+}
