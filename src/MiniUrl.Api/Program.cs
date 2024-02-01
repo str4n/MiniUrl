@@ -1,3 +1,4 @@
+using MiniUrl.Api.Endpoints;
 using MiniUrl.Application;
 using MiniUrl.Domain;
 using MiniUrl.Infrastructure;
@@ -11,7 +12,7 @@ builder.Services
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapHomeEndpoints();
 
 app.UseInfrastructure();
 

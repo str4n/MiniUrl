@@ -18,6 +18,14 @@ public sealed record Code
             throw new InvalidCodeException($"Url code length must equal: {ShortUrlSettings.Length}");
         }
 
+        foreach (var character in value)
+        {
+            if (ShortUrlSettings.AvailableCharacters.Any(x => x != character))
+            {
+                throw new InvalidCodeException("Code must contain only numbers or letters");
+            }
+        }
+
         Value = value;
     }
 

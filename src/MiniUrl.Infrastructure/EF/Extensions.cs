@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MiniUrl.Domain.Repositories;
+using MiniUrl.Infrastructure.EF.Repositories;
 
 namespace MiniUrl.Infrastructure.EF;
 
@@ -14,6 +16,8 @@ internal static class Extensions
         
         var options = configuration.GetOptions<PostgresOptions>(SectionName);
         services.AddDbContext<MiniUrlDbContext>(x => x.UseNpgsql(options.ConnectionString));
+
+        services.AddScoped<IUrlRepository, UrlRepository>();
         
         return services;
     }

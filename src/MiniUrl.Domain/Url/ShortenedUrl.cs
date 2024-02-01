@@ -7,13 +7,15 @@ public sealed class ShortenedUrl
     public Url ShortUrl { get; set; }
     public Code Code { get; set; }
     public DateTime CreatedAt { get; }
+    public DateTime Expiry { get; }
 
-    public ShortenedUrl(Url longUrl, Url shortUrl, Code code, DateTime createdAt, Guid id = default)
+    public ShortenedUrl(Url longUrl, Url shortUrl, Code code, DateTime createdAt, DateTime expiry,Guid id = default)
     {
         Id = id != Guid.Empty ? id : Guid.NewGuid();
         LongUrl = longUrl;
         ShortUrl = shortUrl;
         Code = code;
         CreatedAt = createdAt;
+        Expiry = expiry;
     }
 }

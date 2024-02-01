@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using MiniUrl.Infrastructure.EF;
 using MiniUrl.Infrastructure.Exceptions;
 using MiniUrl.Infrastructure.Services;
+using MiniUrl.Infrastructure.Time;
 
 namespace MiniUrl.Infrastructure;
 
@@ -17,6 +18,8 @@ public static class Extensions
         services.AddScoped<ExceptionHandlerMiddleware>();
 
         services.AddPostgres(configuration);
+
+        services.AddSingleton<IClock, UtcClock>();
 
         services.AddHostedService<DatabaseInitializer>();
 
