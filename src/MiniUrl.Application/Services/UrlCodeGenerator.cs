@@ -1,6 +1,37 @@
-﻿namespace MiniUrl.Application.Services;
+﻿using MiniUrl.Domain.Repositories;
+using MiniUrl.Domain.Url;
 
-public class UrlCodeGenerator
+namespace MiniUrl.Application.Services;
+
+internal sealed class UrlCodeGenerator : IUrlCodeGenerator
 {
-    
+    private readonly IUrlRepository _repository;
+    private readonly Random _random = new();
+
+    public UrlCodeGenerator(IUrlRepository repository)
+    {
+        _repository = repository;
+    }
+    public async Task<string> Generate()
+    {
+        var codeChars = new char[ShortUrlSettings.Length];
+        int maxValue = ShortUrlSettings.AvailableCharacters.Length;
+
+        while (true)
+        {
+            for (var i = 0; i < ShortUrlSettings.Length; i++)
+            {
+                var randomIndex = _random.Next(maxValue);
+
+                codeChars[i] = ShortUrlSettings.AvailableCharacters[randomIndex];
+            }
+
+            var code = new string(codeChars);
+
+            if (!await _repository.AnyAsync(code))
+            {
+                return code;
+            }
+        }
+    }
 }

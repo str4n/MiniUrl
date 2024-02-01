@@ -2,5 +2,5 @@
 
 public interface IUrlCodeGenerator
 {
-    string Generate();
+    Task<string> Generate();
 }

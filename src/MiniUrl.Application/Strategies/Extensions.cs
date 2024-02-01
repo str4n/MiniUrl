@@ -7,13 +7,13 @@ internal static class Extensions
 {
     public static IServiceCollection AddStrategies(this IServiceCollection services)
     {
-        services.AddSingleton<IShorteningStrategyFactory, ShorteningStrategyFactory>();
+        services.AddScoped<IShorteningStrategyFactory, ShorteningStrategyFactory>();
 
         services
-            .AddSingleton<IShorteningStrategy, NoLifeTimeNoCustomCodeStrategy>()
-            .AddSingleton<IShorteningStrategy, NoLifeTimeStrategy>()
-            .AddSingleton<IShorteningStrategy, NoCustomCodeStrategy>()
-            .AddSingleton<IShorteningStrategy, DefaultStrategy>();
+            .AddScoped<IShorteningStrategy, PermanentLifeTimeNoCustomCodeStrategy>()
+            .AddScoped<IShorteningStrategy, PermanentLifeTimeStrategy>()
+            .AddScoped<IShorteningStrategy, NoCustomCodeStrategy>()
+            .AddScoped<IShorteningStrategy, DefaultStrategy>();
 
         return services;
     }

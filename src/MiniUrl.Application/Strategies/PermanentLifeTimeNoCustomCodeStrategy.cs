@@ -7,13 +7,13 @@ using MiniUrl.Infrastructure.Time;
 
 namespace MiniUrl.Application.Strategies;
 
-internal sealed class NoCustomCodeStrategy : IShorteningStrategy
+internal sealed class PermanentLifeTimeNoCustomCodeStrategy : IShorteningStrategy
 {
     private readonly IUrlRepository _repository;
     private readonly IClock _clock;
     private readonly IUrlCodeGenerator _codeGenerator;
 
-    public NoCustomCodeStrategy(IUrlRepository repository, IClock clock, IUrlCodeGenerator codeGenerator)
+    public PermanentLifeTimeNoCustomCodeStrategy(IUrlRepository repository, IClock clock, IUrlCodeGenerator codeGenerator)
     {
         _repository = repository;
         _clock = clock;
@@ -24,10 +24,9 @@ internal sealed class NoCustomCodeStrategy : IShorteningStrategy
     {
         var code = await _codeGenerator.Generate();
         var now = _clock.Now();
-        var expiry = now.AddHours(request.LifeTime);
         var shortUrl = $"{request.Scheme}://{request.Host}/{code}";
 
-        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, code, now, expiry);
+        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, code, now, DateTime.MaxValue);
 
         await _repository.AddAsync(shortenedUrl);
 

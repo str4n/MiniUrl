@@ -9,6 +9,7 @@ public static class Extensions
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped<IUrlService, UrlService>();
+        services.AddScoped<IUrlCodeGenerator, UrlCodeGenerator>();
 
         services.AddStrategies();
         

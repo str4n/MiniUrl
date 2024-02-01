@@ -26,9 +26,10 @@ internal sealed class DefaultStrategy : IShorteningStrategy
         }
 
         var now = _clock.Now();
+        var expiry = now.AddHours(request.LifeTime);
         var shortUrl = $"{request.Scheme}://{request.Host}/{request.CustomCode}";
 
-        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, request.CustomCode, now, DateTime.MaxValue);
+        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, request.CustomCode, now, expiry);
 
         await _repository.AddAsync(shortenedUrl);
 

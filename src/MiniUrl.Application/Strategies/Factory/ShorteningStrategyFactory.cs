@@ -13,14 +13,14 @@ internal sealed class ShorteningStrategyFactory : IShorteningStrategyFactory
     
     public IShorteningStrategy GetStrategy(ShortenUrlRequest request)
     {
-        if (request.LifeTime is 0 && request.CustomCode is null)
+        if (request.LifeTime is default(int) && request.CustomCode is null)
         {
-            return _strategies.SingleOrDefault(x => x is NoLifeTimeNoCustomCodeStrategy);
+            return _strategies.SingleOrDefault(x => x is PermanentLifeTimeNoCustomCodeStrategy);
         }
 
-        if (request.LifeTime is 0)
+        if (request.LifeTime is default(int))
         {
-            return _strategies.SingleOrDefault(x => x is NoLifeTimeStrategy);
+            return _strategies.SingleOrDefault(x => x is PermanentLifeTimeStrategy);
         }
 
         if (request.CustomCode is null)
