@@ -13,6 +13,7 @@ builder.Services
 var app = builder.Build();
 
 app.MapHomeEndpoints();
+app.MapUrlEndpoints();
 
 app.UseInfrastructure();
 

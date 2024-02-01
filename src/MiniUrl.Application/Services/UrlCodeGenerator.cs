@@ -12,7 +12,7 @@ internal sealed class UrlCodeGenerator : IUrlCodeGenerator
     {
         _repository = repository;
     }
-    public async Task<string> Generate()
+    public async Task<Code> Generate()
     {
         var codeChars = new char[ShortUrlSettings.Length];
         int maxValue = ShortUrlSettings.AvailableCharacters.Length;

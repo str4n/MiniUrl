@@ -18,4 +18,8 @@ public sealed class ShortenedUrl
         CreatedAt = createdAt;
         Expiry = expiry;
     }
+
+    private ShortenedUrl()
+    {
+    }
 }

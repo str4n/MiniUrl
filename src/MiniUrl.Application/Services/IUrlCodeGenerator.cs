@@ -1,6 +1,8 @@
-﻿namespace MiniUrl.Application.Services;
+﻿using MiniUrl.Domain.Url;
+
+namespace MiniUrl.Application.Services;
 
 public interface IUrlCodeGenerator
 {
-    Task<string> Generate();
+    Task<Code> Generate();
 }

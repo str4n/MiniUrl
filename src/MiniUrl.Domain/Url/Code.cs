@@ -20,7 +20,7 @@ public sealed record Code
 
         foreach (var character in value)
         {
-            if (ShortUrlSettings.AvailableCharacters.Any(x => x != character))
+            if (!ShortUrlSettings.AvailableCharacters.ToCharArray().Contains(character))
             {
                 throw new InvalidCodeException("Code must contain only numbers or letters");
             }

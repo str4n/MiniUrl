@@ -1,0 +1,24 @@
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using MiniUrl.Application.Requests;
+using MiniUrl.Application.Services;
+
+namespace MiniUrl.Api.Endpoints;
+
+internal static class UrlEndpoints
+{
+    public static IEndpointRouteBuilder MapUrlEndpoints(this IEndpointRouteBuilder app)
+    {
+        app.MapPost("shorten", ShortenUrl);
+
+        return app;
+    }
+
+    private static async Task<IResult> ShortenUrl([FromBody] ShortenUrlRequest request, 
+        [FromServices] IUrlService urlService)
+    {
+        var result = await urlService.Shorten(request);
+
+        return Results.Ok(result);
+    }
+}
