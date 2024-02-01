@@ -31,6 +31,6 @@ internal sealed class NoCustomCodeStrategy : IShorteningStrategy
 
         await _repository.AddAsync(shortenedUrl);
 
-        return new ShortenedUrlDto(shortUrl);
+        return new ShortenedUrlDto(shortUrl, request.Url);
     }
 }

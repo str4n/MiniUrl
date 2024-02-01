@@ -10,15 +10,23 @@ internal static class UrlEndpoints
     public static IEndpointRouteBuilder MapUrlEndpoints(this IEndpointRouteBuilder app)
     {
         app.MapPost("shorten", ShortenUrl);
+        app.MapGet("{code}", GetRedirection);
 
         return app;
     }
 
     private static async Task<IResult> ShortenUrl([FromBody] ShortenUrlRequest request, 
-        [FromServices] IUrlService urlService)
+        [FromServices] IUrlService service)
     {
-        var result = await urlService.Shorten(request);
+        var result = await service.Shorten(request);
 
         return Results.Ok(result);
+    }
+
+    private static async Task<IResult> GetRedirection([FromRoute] string code, [FromServices] IUrlService service)
+    {
+        var result = await service.GetUrl(code);
+
+        return Results.Redirect(result.LongUrl);
     }
 }

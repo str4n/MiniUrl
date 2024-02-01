@@ -13,8 +13,8 @@ internal sealed class UrlRepository : IUrlRepository
         _dbContext = dbContext;
     }
 
-    public Task<ShortenedUrl> GetAsync(Guid id)
-        => _dbContext.ShortenedUrls.SingleOrDefaultAsync(x => x.Id == id);
+    public Task<ShortenedUrl> GetAsync(Code code)
+        => _dbContext.ShortenedUrls.SingleOrDefaultAsync(x => x.Code == code);
 
     public async Task AddAsync(ShortenedUrl shortenedUrl)
     {
