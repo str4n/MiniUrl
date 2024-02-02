@@ -22,9 +22,9 @@ internal sealed class PermanentLifeTimeNoCustomCodeStrategy : IShorteningStrateg
     
     public async Task<ShortenedUrlDto> ShortenUrl(ShortenUrlRequest request)
     {
-        var code = await _codeGenerator.Generate();
+        var code = (await _codeGenerator.Generate()).Value;
         var now = _clock.Now();
-        var shortUrl = $"{request.Scheme}://{request.Host}/{code.Value}";
+        var shortUrl = $"{request.Scheme}://{request.Host}/{code}";
 
         var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, code, now, DateTime.MaxValue);
 

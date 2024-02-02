@@ -9,7 +9,7 @@ internal static class UrlEndpoints
 {
     public static IEndpointRouteBuilder MapUrlEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapPost("shorten", ShortenUrl);
+        app.MapPost("/", ShortenUrl);
         app.MapGet("{code}", GetRedirection);
 
         return app;
