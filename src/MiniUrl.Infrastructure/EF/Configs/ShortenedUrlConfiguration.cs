@@ -26,5 +26,7 @@ internal sealed class ShortenedUrlConfiguration : IEntityTypeConfiguration<Short
         builder.HasIndex(x => x.Code).IsUnique();
 
         builder.Property(x => x.CreatedAt).IsRequired();
+
+        builder.Property(x => x.Expiry).IsRequired();
     }
 }

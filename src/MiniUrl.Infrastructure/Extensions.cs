@@ -20,8 +20,9 @@ public static class Extensions
         services.AddPostgres(configuration);
 
         services.AddSingleton<IClock, UtcClock>();
-
+        
         services.AddHostedService<DatabaseInitializer>();
+        services.AddHostedService<ExpiredUrlsRemover>();
 
         services.AddSwaggerGen(swagger =>
         {
