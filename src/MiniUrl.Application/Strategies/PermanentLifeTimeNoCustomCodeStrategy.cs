@@ -24,7 +24,7 @@ internal sealed class PermanentLifeTimeNoCustomCodeStrategy : IShorteningStrateg
     {
         var code = (await _codeGenerator.Generate()).Value;
         var now = _clock.Now();
-        var shortUrl = $"{request.Scheme}://{request.Host}/{code}";
+        var shortUrl = $"{request.Schema}://{request.Host}/{code}";
 
         var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, code, now, DateTime.MaxValue);
 

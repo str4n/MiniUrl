@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -32,9 +33,17 @@ internal sealed class ExpiredUrlsRemover : IHostedService
         {
             using var scope = _serviceProvider.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<MiniUrlDbContext>();
+            var distributedCache = scope.ServiceProvider.GetRequiredService<IDistributedCache>();
             
-            var expiredUrls = dbContext.ShortenedUrls.Where(x => x.Expiry < _clock.Now());
-            await expiredUrls.ExecuteDeleteAsync();
+            var expiredUrls = await dbContext.ShortenedUrls.Where(x => x.Expiry < _clock.Now()).ToListAsync();
+            foreach (var url in expiredUrls)
+            {
+                var key = $"url-{url.Code.Value}";
+                await distributedCache.RemoveAsync(key);
+            }
+            
+            dbContext.RemoveRange(expiredUrls);
+            await dbContext.SaveChangesAsync();
         }
         catch (Exception ex)
         {

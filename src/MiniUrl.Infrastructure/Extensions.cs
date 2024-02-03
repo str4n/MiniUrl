@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using MiniUrl.Infrastructure.Caching;
 using MiniUrl.Infrastructure.EF;
 using MiniUrl.Infrastructure.Exceptions;
 using MiniUrl.Infrastructure.Services;
@@ -18,6 +19,7 @@ public static class Extensions
         services.AddScoped<ExceptionHandlerMiddleware>();
 
         services.AddPostgres(configuration);
+        services.AddRedisCaching(configuration);
 
         services.AddSingleton<IClock, UtcClock>();
         

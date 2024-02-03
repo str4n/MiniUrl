@@ -25,7 +25,7 @@ internal sealed class NoCustomCodeStrategy : IShorteningStrategy
         var code = (await _codeGenerator.Generate()).Value;
         var now = _clock.Now();
         var expiry = now.AddHours(request.LifeTime);
-        var shortUrl = $"{request.Scheme}://{request.Host}/{code}";
+        var shortUrl = $"{request.Schema}://{request.Host}/{code}";
 
         var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, code, now, expiry);
 

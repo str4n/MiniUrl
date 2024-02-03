@@ -26,7 +26,7 @@ internal sealed class PermanentLifeTimeStrategy : IShorteningStrategy
         }
 
         var now = _clock.Now();
-        var shortUrl = $"{request.Scheme}://{request.Host}/{request.CustomCode}";
+        var shortUrl = $"{request.Schema}://{request.Host}/{request.CustomCode}";
 
         var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, request.CustomCode, now, DateTime.MaxValue);
 
