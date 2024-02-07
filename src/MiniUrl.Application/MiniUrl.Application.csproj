@@ -8,5 +8,9 @@
     <ItemGroup>
       <ProjectReference Include="..\MiniUrl.Infrastructure\MiniUrl.Infrastructure.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <InternalsVisibleTo Include="MiniUrl.Tests.Unit"/>
+    </ItemGroup>
 
 </Project>
