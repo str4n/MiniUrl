@@ -14,12 +14,12 @@ internal sealed class UrlCodeGenerator : IUrlCodeGenerator
     }
     public async Task<Code> Generate()
     {
-        var codeChars = new char[ShortUrlSettings.Length];
+        var codeChars = new char[ShortUrlSettings.GeneratedUrlLength];
         int maxValue = ShortUrlSettings.AvailableCharacters.Length;
 
         while (true)
         {
-            for (var i = 0; i < ShortUrlSettings.Length; i++)
+            for (var i = 0; i < ShortUrlSettings.GeneratedUrlLength; i++)
             {
                 var randomIndex = _random.Next(maxValue);
 

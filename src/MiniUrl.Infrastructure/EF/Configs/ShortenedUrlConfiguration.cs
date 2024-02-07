@@ -20,7 +20,7 @@ internal sealed class ShortenedUrlConfiguration : IEntityTypeConfiguration<Short
         
         builder.Property(x => x.Code)
             .HasConversion(x => x.Value, x => new(x))
-            .HasMaxLength(6)
+            .HasMaxLength(10)
             .IsRequired();
 
         builder.HasIndex(x => x.Code).IsUnique();
