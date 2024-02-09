@@ -28,7 +28,7 @@ internal sealed class PermanentLifeTimeStrategy : IShorteningStrategy
         var now = _clock.Now();
         var shortUrl = $"{request.Schema}://{request.Host}/{request.CustomCode}";
 
-        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, request.CustomCode, now, DateTime.MaxValue);
+        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, request.CustomCode, now, _clock.MaxValue());
 
         await _repository.AddAsync(shortenedUrl);
 

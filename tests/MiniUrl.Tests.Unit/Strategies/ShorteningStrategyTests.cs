@@ -21,7 +21,7 @@ public abstract class ShorteningStrategyTests
     public ShorteningStrategyTests()
     {
         var clock = new TestClock();
-        var repository = new InMemoryUrlRepository();
+        var repository = new InMemoryUrlRepository(clock);
         CodeGenerator = new UrlCodeGenerator(repository);
         Repository = repository;
         Clock = clock;

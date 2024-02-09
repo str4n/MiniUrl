@@ -33,7 +33,7 @@ public class PermanentLifeTimeStrategyTests : ShorteningStrategyTests
         shortenedUrl.ShortUrl.Should().Be(expectedShortUrl);
         shortenedUrl.LongUrl.Should().Be((Url)url);
         shortenedUrl.CreatedAt.Should().Be(Clock.Now());
-        shortenedUrl.Expiry.Should().Be(DateTime.MaxValue);
+        shortenedUrl.Expiry.Should().Be(Clock.MaxValue());
     }
     
     [Fact]

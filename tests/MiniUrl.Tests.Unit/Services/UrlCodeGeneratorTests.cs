@@ -2,6 +2,7 @@
 using MiniUrl.Application.Services;
 using MiniUrl.Domain.Repositories;
 using MiniUrl.Domain.Url;
+using MiniUrl.Tests.Unit.Helpers.Clock;
 using MiniUrl.Tests.Unit.Helpers.Repositories;
 using Xunit;
 
@@ -22,7 +23,8 @@ public class UrlCodeGeneratorTests
 
     public UrlCodeGeneratorTests()
     {
-        IUrlRepository urlRepository = new InMemoryUrlRepository();
+        var clock = new TestClock();
+        IUrlRepository urlRepository = new InMemoryUrlRepository(clock);
         _codeGenerator = new UrlCodeGenerator(urlRepository);
     }
 }

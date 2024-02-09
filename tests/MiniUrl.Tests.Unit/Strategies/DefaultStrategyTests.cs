@@ -15,7 +15,7 @@ public class DefaultStrategyTests : ShorteningStrategyTests
         const string url = "https://www.youtube.com/";
         const string schema = "https";
         const string host = "localhost:9990";
-        const string code = "youtub";
+        const string code = "youtubx";
         const int lifeTime = 12;
         
         var request = new ShortenUrlRequest(schema, host, 
