@@ -10,10 +10,10 @@ internal static class Extensions
         services.AddScoped<IShorteningStrategyFactory, ShorteningStrategyFactory>();
 
         services
-            .AddScoped<IShorteningStrategy, PermanentLifeTimeNoCustomCodeStrategy>()
             .AddScoped<IShorteningStrategy, PermanentLifeTimeStrategy>()
-            .AddScoped<IShorteningStrategy, NoCustomCodeStrategy>()
-            .AddScoped<IShorteningStrategy, DefaultStrategy>();
+            .AddScoped<IShorteningStrategy, CustomCodePermanentLifeTimeStrategy>()
+            .AddScoped<IShorteningStrategy, DefaultStrategy>()
+            .AddScoped<IShorteningStrategy, CustomCodeStrategy>();
 
         return services;
     }

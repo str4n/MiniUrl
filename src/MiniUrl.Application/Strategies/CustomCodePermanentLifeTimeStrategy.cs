@@ -1,33 +1,34 @@
 ﻿using MiniUrl.Application.DTO;
+using MiniUrl.Application.Exceptions;
 using MiniUrl.Application.Requests;
-using MiniUrl.Application.Services;
 using MiniUrl.Domain.Repositories;
 using MiniUrl.Domain.Url;
 using MiniUrl.Infrastructure.Time;
 
 namespace MiniUrl.Application.Strategies;
 
-internal sealed class NoCustomCodeStrategy : IShorteningStrategy
+internal sealed class CustomCodePermanentLifeTimeStrategy : IShorteningStrategy
 {
     private readonly IUrlRepository _repository;
     private readonly IClock _clock;
-    private readonly IUrlCodeGenerator _codeGenerator;
 
-    public NoCustomCodeStrategy(IUrlRepository repository, IClock clock, IUrlCodeGenerator codeGenerator)
+    public CustomCodePermanentLifeTimeStrategy(IUrlRepository repository, IClock clock)
     {
         _repository = repository;
         _clock = clock;
-        _codeGenerator = codeGenerator;
     }
     
     public async Task<ShortenedUrlDto> ShortenUrl(ShortenUrlRequest request)
     {
-        var code = (await _codeGenerator.Generate()).Value;
-        var now = _clock.Now();
-        var expiry = now.AddHours(request.LifeTime);
-        var shortUrl = $"{request.Schema}://{request.Host}/{code}";
+        if (await _repository.AnyAsync(request.CustomCode))
+        {
+            throw new CustomCodeAlreadyExistsException();
+        }
 
-        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, code, now, expiry);
+        var now = _clock.Now();
+        var shortUrl = $"{request.Schema}://{request.Host}/{request.CustomCode}";
+
+        var shortenedUrl = new ShortenedUrl(request.Url, shortUrl, request.CustomCode, now, _clock.MaxValue());
 
         await _repository.AddAsync(shortenedUrl);
 

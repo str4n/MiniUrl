@@ -15,19 +15,19 @@ internal sealed class ShorteningStrategyFactory : IShorteningStrategyFactory
     {
         if (request.LifeTime is default(int) && request.CustomCode is null)
         {
-            return _strategies.SingleOrDefault(x => x is PermanentLifeTimeNoCustomCodeStrategy);
+            return _strategies.SingleOrDefault(x => x is PermanentLifeTimeStrategy);
         }
 
         if (request.LifeTime is default(int))
         {
-            return _strategies.SingleOrDefault(x => x is PermanentLifeTimeStrategy);
+            return _strategies.SingleOrDefault(x => x is CustomCodePermanentLifeTimeStrategy);
         }
 
         if (request.CustomCode is null)
         {
-            return _strategies.SingleOrDefault(x => x is NoCustomCodeStrategy);
+            return _strategies.SingleOrDefault(x => x is DefaultStrategy);
         }
 
-        return _strategies.SingleOrDefault(x => x is DefaultStrategy);
+        return _strategies.SingleOrDefault(x => x is CustomCodeStrategy);
     }
 }

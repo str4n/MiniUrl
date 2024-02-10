@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using MiniUrl.Application.Exceptions;
 using MiniUrl.Application.Requests;
 using MiniUrl.Application.Strategies;
 using MiniUrl.Domain.Url;
@@ -6,7 +7,7 @@ using Xunit;
 
 namespace MiniUrl.Tests.Unit.Strategies;
 
-public class PermanentLifeTimeNoCustomCodeStrategyTests : ShorteningStrategyTests
+public class CustomCodePermanentLifeTimeStrategyTests : ShorteningStrategyTests
 {
     [Fact]
     public async Task Given_Valid_Request_Strategy_Should_Shorten_Url_In_Proper_Way()
@@ -14,13 +15,13 @@ public class PermanentLifeTimeNoCustomCodeStrategyTests : ShorteningStrategyTest
         const string url = "https://www.youtube.com/";
         const string schema = "https";
         const string host = "localhost:9990";
+        const string code = "youtub";
         
         var request = new ShortenUrlRequest(schema, host, 
-            url, null, default);
-        
+            url, code, default);
+
         var result = await _shorteningStrategy.ShortenUrl(request);
         
-        var code = result.ShortUrl.Replace($"{schema}://{host}/", string.Empty);
         var expectedShortUrl = (Url)$"{schema}://{host}/{code}";
         
         result.LongUrl.Should().Be(url);
@@ -35,11 +36,26 @@ public class PermanentLifeTimeNoCustomCodeStrategyTests : ShorteningStrategyTest
         shortenedUrl.Expiry.Should().Be(Clock.MaxValue());
     }
     
+    [Fact]
+    public async Task Given_Request_With_Code_Already_In_Use_Strategy_Should_Shorten_Url_In_Proper_Way()
+    {
+        const string url = "https://www.youtube.com/";
+        const string schema = "https";
+        const string host = "localhost:9990";
+        const string code = "youtube";
+        
+        var request = new ShortenUrlRequest(schema, host, 
+            url, code, default);
+
+        var act = () => _shorteningStrategy.ShortenUrl(request);
+        
+        await act.Should().ThrowAsync<CustomCodeAlreadyExistsException>();
+    }
     
     private readonly IShorteningStrategy _shorteningStrategy;
     
-    public PermanentLifeTimeNoCustomCodeStrategyTests()
+    public CustomCodePermanentLifeTimeStrategyTests()
     {
-        _shorteningStrategy = new PermanentLifeTimeNoCustomCodeStrategy(Repository, Clock, CodeGenerator);
+        _shorteningStrategy = new CustomCodePermanentLifeTimeStrategy(Repository, Clock);
     }
 }
