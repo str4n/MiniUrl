@@ -1,8 +1,8 @@
-﻿using MiniUrl.Application.DTO;
-using MiniUrl.Application.Requests;
+﻿using MiniUrl.Application.ShortenedUrls.DTO;
+using MiniUrl.Application.ShortenedUrls.Requests;
 using MiniUrl.Domain.ShortenedUrls.Url;
 
-namespace MiniUrl.Application.Services;
+namespace MiniUrl.Application.ShortenedUrls.Services;
 
 public interface IUrlService
 {

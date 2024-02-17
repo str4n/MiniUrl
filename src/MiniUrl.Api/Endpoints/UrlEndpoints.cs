@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using MiniUrl.Application.Requests;
-using MiniUrl.Application.Services;
+using MiniUrl.Application.ShortenedUrls.Requests;
+using MiniUrl.Application.ShortenedUrls.Services;
 
 namespace MiniUrl.Api.Endpoints;
 

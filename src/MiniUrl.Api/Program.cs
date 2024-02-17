@@ -1,5 +1,6 @@
 using MiniUrl.Api.Endpoints;
 using MiniUrl.Application;
+using MiniUrl.Application.ShortenedUrls;
 using MiniUrl.Domain;
 using MiniUrl.Domain.ShortenedUrls;
 using MiniUrl.Infrastructure;
@@ -15,6 +16,7 @@ var app = builder.Build();
 
 app.MapHomeEndpoints();
 app.MapUrlEndpoints();
+app.MapUserEndpoints();
 
 app.UseInfrastructure();
 

@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
-using MiniUrl.Application.Exceptions;
-using MiniUrl.Application.Requests;
-using MiniUrl.Application.Strategies;
+using MiniUrl.Application.ShortenedUrls.Exceptions;
+using MiniUrl.Application.ShortenedUrls.Requests;
+using MiniUrl.Application.ShortenedUrls.Strategies;
 using MiniUrl.Domain.ShortenedUrls.Url;
 using Xunit;
 

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using MiniUrl.Application.Services;
+using MiniUrl.Application.ShortenedUrls.Services;
 using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Domain.ShortenedUrls.Url;
 using MiniUrl.Tests.Unit.Helpers.Clock;

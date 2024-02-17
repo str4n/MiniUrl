@@ -1,6 +1,6 @@
 ﻿using MiniUrl.Domain.ShortenedUrls.Url;
 
-namespace MiniUrl.Application.Services;
+namespace MiniUrl.Application.ShortenedUrls.Services;
 
 public interface IUrlCodeGenerator
 {

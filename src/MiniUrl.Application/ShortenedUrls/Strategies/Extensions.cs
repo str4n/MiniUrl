@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MiniUrl.Application.Strategies.Factory;
+using MiniUrl.Application.ShortenedUrls.Strategies.Factory;
 
-namespace MiniUrl.Application.Strategies;
+namespace MiniUrl.Application.ShortenedUrls.Strategies;
 
 internal static class Extensions
 {

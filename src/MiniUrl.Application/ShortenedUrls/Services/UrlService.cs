@@ -1,13 +1,11 @@
-﻿using MiniUrl.Application.DTO;
-using MiniUrl.Application.Exceptions;
-using MiniUrl.Application.Requests;
-using MiniUrl.Application.Strategies;
-using MiniUrl.Application.Strategies.Factory;
+﻿using MiniUrl.Application.ShortenedUrls.DTO;
+using MiniUrl.Application.ShortenedUrls.Exceptions;
+using MiniUrl.Application.ShortenedUrls.Requests;
+using MiniUrl.Application.ShortenedUrls.Strategies.Factory;
 using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Domain.ShortenedUrls.Url;
-using MiniUrl.Infrastructure.Time;
 
-namespace MiniUrl.Application.Services;
+namespace MiniUrl.Application.ShortenedUrls.Services;
 
 internal sealed class UrlService : IUrlService
 {

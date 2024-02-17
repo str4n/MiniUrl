@@ -1,7 +1,7 @@
 ﻿using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Domain.ShortenedUrls.Url;
 
-namespace MiniUrl.Application.Services;
+namespace MiniUrl.Application.ShortenedUrls.Services;
 
 internal sealed class UrlCodeGenerator : IUrlCodeGenerator
 {

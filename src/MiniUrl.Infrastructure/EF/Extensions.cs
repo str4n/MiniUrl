@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MiniUrl.Domain.ShortenedUrls.Repositories;
+using MiniUrl.Domain.Users.Repositories;
 using MiniUrl.Infrastructure.EF.Repositories;
 
 namespace MiniUrl.Infrastructure.EF;
@@ -18,6 +19,7 @@ internal static class Extensions
         services.AddDbContext<MiniUrlDbContext>(x => x.UseNpgsql(options.ConnectionString));
 
         services.AddScoped<IUrlRepository, UrlRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         
         return services;
     }

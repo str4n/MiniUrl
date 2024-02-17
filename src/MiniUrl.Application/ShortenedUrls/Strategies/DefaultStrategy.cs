@@ -1,12 +1,12 @@
-﻿using MiniUrl.Application.DTO;
-using MiniUrl.Application.Exceptions;
-using MiniUrl.Application.Requests;
-using MiniUrl.Application.Services;
+﻿using MiniUrl.Application.ShortenedUrls.DTO;
+using MiniUrl.Application.ShortenedUrls.Exceptions;
+using MiniUrl.Application.ShortenedUrls.Requests;
+using MiniUrl.Application.ShortenedUrls.Services;
 using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Domain.ShortenedUrls.Url;
 using MiniUrl.Infrastructure.Time;
 
-namespace MiniUrl.Application.Strategies;
+namespace MiniUrl.Application.ShortenedUrls.Strategies;
 
 internal sealed class DefaultStrategy : IShorteningStrategy
 {

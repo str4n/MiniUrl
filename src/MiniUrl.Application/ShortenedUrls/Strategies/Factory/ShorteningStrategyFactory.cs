@@ -1,6 +1,6 @@
-﻿using MiniUrl.Application.Requests;
+﻿using MiniUrl.Application.ShortenedUrls.Requests;
 
-namespace MiniUrl.Application.Strategies.Factory;
+namespace MiniUrl.Application.ShortenedUrls.Strategies.Factory;
 
 internal sealed class ShorteningStrategyFactory : IShorteningStrategyFactory
 {

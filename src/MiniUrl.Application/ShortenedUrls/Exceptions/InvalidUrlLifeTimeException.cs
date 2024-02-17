@@ -1,6 +1,6 @@
 ﻿using MiniUrl.Domain.ShortenedUrls.Exceptions;
 
-namespace MiniUrl.Application.Exceptions;
+namespace MiniUrl.Application.ShortenedUrls.Exceptions;
 
 internal sealed class InvalidUrlLifeTimeException : ApiException
 {

@@ -1,7 +1,5 @@
 ﻿using FluentAssertions;
-using MiniUrl.Application.Requests;
-using MiniUrl.Application.Services;
-using MiniUrl.Application.Strategies;
+using MiniUrl.Application.ShortenedUrls.Services;
 using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Infrastructure.EF.Repositories;
 using MiniUrl.Infrastructure.Time;
