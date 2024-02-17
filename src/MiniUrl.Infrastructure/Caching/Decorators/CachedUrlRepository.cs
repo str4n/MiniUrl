@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
-using MiniUrl.Domain.Repositories;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Repositories;
+using MiniUrl.Domain.ShortenedUrls.Url;
 using Newtonsoft.Json;
 
 namespace MiniUrl.Infrastructure.Caching.Decorators;

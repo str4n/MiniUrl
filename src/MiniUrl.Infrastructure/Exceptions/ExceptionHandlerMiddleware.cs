@@ -2,7 +2,7 @@
 using Humanizer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using MiniUrl.Domain.Exceptions;
+using MiniUrl.Domain.ShortenedUrls.Exceptions;
 
 namespace MiniUrl.Infrastructure.Exceptions;
 

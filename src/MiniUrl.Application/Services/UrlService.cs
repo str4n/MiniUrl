@@ -3,8 +3,8 @@ using MiniUrl.Application.Exceptions;
 using MiniUrl.Application.Requests;
 using MiniUrl.Application.Strategies;
 using MiniUrl.Application.Strategies.Factory;
-using MiniUrl.Domain.Repositories;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Repositories;
+using MiniUrl.Domain.ShortenedUrls.Url;
 using MiniUrl.Infrastructure.Time;
 
 namespace MiniUrl.Application.Services;

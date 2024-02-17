@@ -1,4 +1,4 @@
-﻿using MiniUrl.Domain.Url;
+﻿using MiniUrl.Domain.ShortenedUrls.Url;
 
 namespace MiniUrl.Application.Services;
 

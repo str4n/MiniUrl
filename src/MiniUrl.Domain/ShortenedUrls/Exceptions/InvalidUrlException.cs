@@ -1,4 +1,4 @@
-﻿namespace MiniUrl.Domain.Exceptions;
+﻿namespace MiniUrl.Domain.ShortenedUrls.Exceptions;
 
 internal sealed class InvalidUrlException : ApiException
 {

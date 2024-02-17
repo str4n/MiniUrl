@@ -1,6 +1,6 @@
-﻿using MiniUrl.Domain.Url;
+﻿using MiniUrl.Domain.ShortenedUrls.Url;
 
-namespace MiniUrl.Domain.Repositories;
+namespace MiniUrl.Domain.ShortenedUrls.Repositories;
 
 public interface IUrlRepository
 {

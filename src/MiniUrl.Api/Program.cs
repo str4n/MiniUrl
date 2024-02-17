@@ -1,6 +1,7 @@
 using MiniUrl.Api.Endpoints;
 using MiniUrl.Application;
 using MiniUrl.Domain;
+using MiniUrl.Domain.ShortenedUrls;
 using MiniUrl.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);

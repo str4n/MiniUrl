@@ -1,5 +1,5 @@
-﻿using MiniUrl.Domain.Repositories;
-using MiniUrl.Domain.Url;
+﻿using MiniUrl.Domain.ShortenedUrls.Repositories;
+using MiniUrl.Domain.ShortenedUrls.Url;
 
 namespace MiniUrl.Application.Services;
 

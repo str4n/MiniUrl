@@ -1,4 +1,4 @@
-﻿namespace MiniUrl.Domain.Exceptions;
+﻿namespace MiniUrl.Domain.ShortenedUrls.Exceptions;
 
 public abstract class ApiException : Exception
 {

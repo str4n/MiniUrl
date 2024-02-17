@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Url;
 
 namespace MiniUrl.Infrastructure.EF;
 

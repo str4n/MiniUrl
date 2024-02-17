@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MiniUrl.Domain;
+namespace MiniUrl.Domain.ShortenedUrls;
 
 public static class Extensions
 {

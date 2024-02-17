@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Url;
 
 namespace MiniUrl.Infrastructure.EF.Configs;
 

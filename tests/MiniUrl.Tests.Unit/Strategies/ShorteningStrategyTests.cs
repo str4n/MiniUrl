@@ -2,8 +2,7 @@
 using MiniUrl.Application.Requests;
 using MiniUrl.Application.Services;
 using MiniUrl.Application.Strategies;
-using MiniUrl.Domain.Repositories;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Infrastructure.EF.Repositories;
 using MiniUrl.Infrastructure.Time;
 using MiniUrl.Tests.Unit.Helpers.Clock;

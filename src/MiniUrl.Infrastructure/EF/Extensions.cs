@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MiniUrl.Domain.Repositories;
+using MiniUrl.Domain.ShortenedUrls.Repositories;
 using MiniUrl.Infrastructure.EF.Repositories;
 
 namespace MiniUrl.Infrastructure.EF;

@@ -1,8 +1,8 @@
 ﻿using MiniUrl.Application.DTO;
 using MiniUrl.Application.Exceptions;
 using MiniUrl.Application.Requests;
-using MiniUrl.Domain.Repositories;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Repositories;
+using MiniUrl.Domain.ShortenedUrls.Url;
 using MiniUrl.Infrastructure.Time;
 
 namespace MiniUrl.Application.Strategies;

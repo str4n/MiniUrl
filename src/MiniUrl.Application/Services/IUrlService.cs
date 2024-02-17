@@ -1,6 +1,6 @@
 ﻿using MiniUrl.Application.DTO;
 using MiniUrl.Application.Requests;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Url;
 
 namespace MiniUrl.Application.Services;
 

@@ -1,11 +1,11 @@
-﻿namespace MiniUrl.Domain.Url;
+﻿namespace MiniUrl.Domain.ShortenedUrls.Url;
 
 public sealed class ShortenedUrl
 {
     public Guid Id { get; }
-    public Url LongUrl { get; set; }
-    public Url ShortUrl { get; set; }
-    public Code Code { get; set; }
+    public Url LongUrl { get; private set; }
+    public Url ShortUrl { get; private set; }
+    public Code Code { get; private set; }
     public DateTime CreatedAt { get; }
     public DateTime Expiry { get; }
 

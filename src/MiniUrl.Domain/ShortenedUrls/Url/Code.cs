@@ -1,6 +1,6 @@
-﻿using MiniUrl.Domain.Exceptions;
+﻿using MiniUrl.Domain.ShortenedUrls.Exceptions;
 
-namespace MiniUrl.Domain.Url;
+namespace MiniUrl.Domain.ShortenedUrls.Url;
 
 public sealed record Code
 {

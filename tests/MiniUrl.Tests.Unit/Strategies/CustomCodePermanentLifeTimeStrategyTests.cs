@@ -2,7 +2,7 @@
 using MiniUrl.Application.Exceptions;
 using MiniUrl.Application.Requests;
 using MiniUrl.Application.Strategies;
-using MiniUrl.Domain.Url;
+using MiniUrl.Domain.ShortenedUrls.Url;
 using Xunit;
 
 namespace MiniUrl.Tests.Unit.Strategies;

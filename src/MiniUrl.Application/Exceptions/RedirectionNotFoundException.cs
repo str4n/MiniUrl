@@ -1,4 +1,4 @@
-﻿using MiniUrl.Domain.Exceptions;
+﻿using MiniUrl.Domain.ShortenedUrls.Exceptions;
 
 namespace MiniUrl.Application.Exceptions;
 
