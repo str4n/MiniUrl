@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using MiniUrl.Infrastructure.Auth;
 using MiniUrl.Infrastructure.Caching;
 using MiniUrl.Infrastructure.EF;
 using MiniUrl.Infrastructure.Exceptions;
@@ -21,10 +22,14 @@ public static class Extensions
         services.AddPostgres(configuration);
         services.AddRedisCaching(configuration);
 
+        services.AddHttpContextAccessor();
+
         services.AddSingleton<IClock, UtcClock>();
         
         services.AddHostedService<DatabaseInitializer>();
         services.AddHostedService<ExpiredUrlsRemover>();
+
+        services.AddAuth(configuration);
 
         services.AddSwaggerGen(swagger =>
         {
@@ -50,6 +55,8 @@ public static class Extensions
             options.DocumentTitle = "MiniUrl API";
             options.SpecUrl("/swagger/v1/swagger.json");
         });
+
+        app.UseAuthentication();
 
         app.UseHttpsRedirection();
         app.UseRouting();

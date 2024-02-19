@@ -2,7 +2,8 @@
 
 namespace MiniUrl.Application.Users.Services;
 
-public interface IUserService
+public interface IIdentityService
 {
     public Task SignUp(SignUpRequest request);
+    public Task SignIn(SignInRequest request);
 }

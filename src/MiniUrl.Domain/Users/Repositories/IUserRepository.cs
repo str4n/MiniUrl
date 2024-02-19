@@ -7,5 +7,5 @@ public interface IUserRepository
     public Task AddAsync(User.User user);
     public Task<bool> AnyAsync(Email email);
     public Task<bool> AnyAsync(Username username);
-    public Task<User.User> GetAsync(Guid id);
+    public Task<User.User> GetAsync(Username username);
 }

@@ -22,7 +22,7 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
             .HasConversion(x => x.Value, x => new(x))
             .IsRequired();
 
-        builder.Property(x => x.UserState)
+        builder.Property(x => x.State)
             .HasConversion<string>()
             .IsRequired();
 

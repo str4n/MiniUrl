@@ -21,7 +21,7 @@ public static class Extensions
 
         services.AddScoped<IUserRequestValidator, UserRequestValidator>();
 
-        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IIdentityService, IdentityService>();
 
         services.AddStrategies();
         

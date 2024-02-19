@@ -8,7 +8,7 @@ public sealed class User
     public Email Email { get; private set; }
     public Username Username { get; private set; }
     public Password Password { get; private set; }
-    public UserState UserState { get; private set; }
+    public UserState State { get; private set; }
     public DateTime CreatedAt { get; }
 
     public User(Email email, Username username, Password password, DateTime createdAt, Guid id = default)
@@ -18,7 +18,7 @@ public sealed class User
         Username = username;
         Password = password;
         CreatedAt = createdAt;
-        UserState = UserState.Active;
+        State = UserState.Active;
     }
 
     private User()
@@ -27,12 +27,12 @@ public sealed class User
 
     public void Delete()
     {
-        if (UserState is UserState.Deleted)
+        if (State is UserState.Deleted)
         {
             throw new UserAlreadyDeletedException();
         }
 
-        UserState = UserState.Deleted;
+        State = UserState.Deleted;
     }
 }
 

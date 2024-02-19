@@ -23,8 +23,8 @@ internal sealed class UserRepository : IUserRepository
         => _dbContext.Users.AnyAsync(x => x.Email == email);
 
     public Task<bool> AnyAsync(Username username)
-        => _dbContext.Users.AnyAsync(x => x.Username == username);
+        => _dbContext.Users.AnyAsync(x => x.Username == username.Value.ToLowerInvariant());
 
-    public Task<User> GetAsync(Guid id)
-        => _dbContext.Users.SingleOrDefaultAsync(x => x.Id == id);
+    public Task<User> GetAsync(Username username)
+        => _dbContext.Users.SingleOrDefaultAsync(x => x.Username == username.Value.ToLowerInvariant());
 }
