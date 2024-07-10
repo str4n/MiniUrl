@@ -1,4 +1,4 @@
-﻿namespace MiniUrl.Infrastructure.Cors;
+﻿namespace MiniUrl.Infrastructure.CORS;
 
 internal sealed record CorsOptions
 {

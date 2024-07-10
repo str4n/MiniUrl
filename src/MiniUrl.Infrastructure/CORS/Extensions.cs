@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace MiniUrl.Infrastructure.Cors;
+namespace MiniUrl.Infrastructure.CORS;
 
 internal static class Extensions
 {

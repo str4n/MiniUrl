@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MiniUrl.Infrastructure.Cors;
+using MiniUrl.Infrastructure.CORS;
 
 namespace MiniUrl.Infrastructure;
 
